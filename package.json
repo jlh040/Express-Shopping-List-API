@@ -1,0 +1,25 @@
+{
+  "name": "express-shopping-list-api",
+  "version": "1.0.0",
+  "description": "An app that allows a user to access/modify a shopping list via an API",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlh040/Express-Shopping-List-API.git"
+  },
+  "author": "Jeff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlh040/Express-Shopping-List-API/issues"
+  },
+  "homepage": "https://github.com/jlh040/Express-Shopping-List-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "supertest": "^6.1.3"
+  }
+}
