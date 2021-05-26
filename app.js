@@ -18,8 +18,10 @@ app.use((err, req, res, next) => {
     let message = err.message;
 
     res.status(status).json({
-        message,
-        status
+        error: {
+            message,
+            status
+        }
     })
 })
 
