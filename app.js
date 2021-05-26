@@ -1,12 +1,10 @@
 const express = require('express');
-const ExpressError = require('./expressError');
-const apiRoutes = require('./apiRoutes');
-const items = require('./fakeDb');
-
 const app = express();
+const apiRoutes = require('./apiRoutes');
+const ExpressError = require('./expressError');
 
-app.use('/items', apiRoutes);
 app.use(express.json());
+app.use('/items', apiRoutes);
 
 // If the URL is not matched, this middleware will throw a 404 error
 app.use((req, res, next) => {
@@ -24,5 +22,6 @@ app.use((err, req, res, next) => {
         status
     })
 })
+
 
 module.exports = app
