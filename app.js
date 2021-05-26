@@ -6,8 +6,7 @@ const items = require('./fakeDb');
 const app = express();
 
 app.use('/items', apiRoutes);
-
-
+app.use(express.json());
 
 // If the URL is not matched, this middleware will throw a 404 error
 app.use((req, res, next) => {
