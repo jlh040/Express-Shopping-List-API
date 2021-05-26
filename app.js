@@ -1,25 +1,9 @@
 const express = require('express');
 const ExpressError = require('./expressError');
 const router = require('./apiRoutes');
-const items = require('./items');
+const items = require('./fakeDb');
 
 const app = express();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
