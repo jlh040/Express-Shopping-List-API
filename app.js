@@ -1,11 +1,11 @@
 const express = require('express');
 const ExpressError = require('./expressError');
-const router = require('./apiRoutes');
+const apiRoutes = require('./apiRoutes');
 const items = require('./fakeDb');
 
 const app = express();
 
-
+app.use('/items', apiRoutes);
 
 
 
