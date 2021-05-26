@@ -8,7 +8,7 @@ function isDuplicate(req, shoppingList) {
 }
 
 function isMissingData(req) {
-    if (!('name' in req.body) || !('price' in req.body)) {
+    if (!(req.body.name && req.body.price)) {
         throw new ExpressError('Item is missing data', 400);
     }
 }
