@@ -35,4 +35,28 @@ describe('GET /items/:name', () => {
         expect(resp.statusCode).toBe(200);
         expect(resp.body).toEqual(jacket);
     });
+
+    test('Do we get a 404 for an invalid name?', async function() {
+        const resp = await request(app).get('/items/raincoat');
+        
+        expect(resp.statusCode).toBe(404);
+    })
 })
+
+describe('POST /items', () => {
+    test('Do we get a 201 status code?', async () => {
+        const response = await request(app).post('/items').send({name: 'Hat', 'price': 15.99});
+
+        expect(response.statusCode).toBe(201);
+    });
+
+    test('Can we add a product to the shopping list?', async () => {
+        const response = await request(app).
+            post('/items').
+            send({name: 'Hat', 'price': 15.99});
+        
+        expect(response.body).toEqual({added: {name: 'Hat', 'price': 15.99}});
+
+    })
+})
+
