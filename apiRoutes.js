@@ -49,6 +49,20 @@ router.patch('/:name', (req, res, next) => {
         return next(e);
     }
 });
+
+router.delete('/:name', (req, res, next) => {
+    try {
+        const itemIdx = items.findIndex(item => item.name === req.params.name);
+        if (itemIdx === -1) throw new ExpressError('Item not found', 404);
+
+        items.splice(itemIdx, 1);
+        return res.json({message: 'Deleted'});
+
+    }
+    catch(e) {
+        return next(e)
+    }
+})
     
 
 
