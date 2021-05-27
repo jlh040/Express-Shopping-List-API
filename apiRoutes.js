@@ -63,18 +63,6 @@ router.delete('/:name', (req, res, next) => {
         return next(e)
     }
 })
-    
-
-
-
-
-
-
-
-
-
-
-
 
 
 
