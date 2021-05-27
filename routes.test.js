@@ -27,3 +27,12 @@ describe('GET /items', () => {
         expect(response.body).toEqual([jacket]);
     })
 })
+
+describe('GET /items/:name', () => {
+    test('Can we request an item by name?', async () => {
+        const resp = await request(app).get('/items/jacket');
+
+        expect(resp.statusCode).toBe(200);
+        expect(resp.body).toEqual(jacket);
+    });
+})
