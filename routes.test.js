@@ -94,3 +94,13 @@ describe('PATCH /items/:name', () => {
     })
 })
 
+describe('DELETE /items/:name', () => {
+    test('Can we delete an item from our shopping list?', async function() {
+        const res = await request(app)
+            .delete('/items/jacket');
+
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toEqual({message: 'Deleted'});
+    });
+})
+
