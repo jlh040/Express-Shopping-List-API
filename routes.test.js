@@ -75,3 +75,22 @@ describe('POST /items', () => {
     })
 })
 
+describe('PATCH /items/:name', () => {
+    test('Can we update an item?', async () => {
+        const res = await request(app)
+            .patch('/items/jacket')
+            .send({price: 89.99});
+
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toEqual({updated: jacket});
+    })
+
+    test('Do we get a 404 status code if an item is not found?', async () => {
+        const res = await request(app)
+            .patch('/items/computer')
+            .send({name: 'jacket', price: 34.99});
+
+        expect(res.statusCode).toEqual(404);
+    })
+})
+
