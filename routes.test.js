@@ -56,7 +56,22 @@ describe('POST /items', () => {
             send({name: 'Hat', 'price': 15.99});
         
         expect(response.body).toEqual({added: {name: 'Hat', 'price': 15.99}});
+    })
 
+    test('Do we get a 400 status code if we have missing data?', async () => {
+        const response = await request(app)
+            .post('/items')
+            .send({name: 'trenchcoat'});
+
+        expect(response.statusCode).toBe(400);
+    });
+
+    test('Do we get a 400 status code if we have duplicate data?', async () => {
+        const res = await request(app)
+            .post('/items')
+            .send({name: 'jacket', price: 34.99});
+
+        expect(res.statusCode).toBe(400);
     })
 })
 
