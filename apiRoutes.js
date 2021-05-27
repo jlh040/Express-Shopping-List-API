@@ -33,6 +33,24 @@ router.get('/:name', (req, res, next) => {
     }
 })
 
+router.patch('/:name', (req, res, next) => {
+    try {
+        let itemIdx = items.findIndex(item => item.name === req.params.name);
+        if (itemIdx === -1) throw new ExpressError('Item Not Found', 404);
+
+        items[itemIdx].name = req.body.name || items[itemIdx].name;
+        items[itemIdx].price = req.body.price || items[itemIdx].price;
+
+        return res.json({
+            updated: items[itemIdx]
+        })
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+    
+
 
 
 
