@@ -13,3 +13,11 @@ beforeEach(function() {
 afterEach(function() {
     items.length = 0;
 })
+
+describe('GET /items', () => {
+    test('Do we receive the correct status code?', async () => {
+        const response = await request(app).get('/items')
+
+        expect(response.statusCode).toBe(200);
+    })
+})
