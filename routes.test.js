@@ -102,5 +102,12 @@ describe('DELETE /items/:name', () => {
         expect(res.statusCode).toBe(200);
         expect(res.body).toEqual({message: 'Deleted'});
     });
+
+    test('Do we get a 404 if the item is not found?', async function() {
+        const res = await request(app)
+            .delete('/items/snowboots');
+
+        expect(res.statusCode).toBe(404);
+    })
 })
 
